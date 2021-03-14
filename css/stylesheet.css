@@ -7,7 +7,7 @@
 body {
   width: 100vw;
   height: 100vh;
-  font-family: 'Montserrat', sans-serif;
+  font-family: Roboto, sans-serif;
   background-color: #F4F4F4;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -24,20 +24,26 @@ body {
 
 p {
   color: #023392;
-  font-size: 1.2rem;
+  font-size: 1rem;
   font-weight: bold;
   margin-bottom: 5vh;
+  margin-top: 5vh;
 }
 
 .sub-container {
   background-color: white;
-  padding: 10px;
+  padding: 20px 15px;
   border-radius:2%;
+  box-shadow: 0px 2px 10px #888888;
 }
 
 img {
   width: 200px;
   height: 200px;
+}
+
+form .input-block {
+  margin-bottom: 20px;
 }
 
 label {
@@ -48,28 +54,84 @@ label {
 
 input[type=text] {
   width: 100%;
-  padding: 12px 20px;
+  padding: 10px 5px;
   margin: 8px 0;
   box-sizing: border-box;
   border: none;
   border-bottom: 2px solid #FB6307;
-  margin-bottom: 30px;
   background-color: transparent;
+}
+
+select {
+  width: 100%;
+  padding: 10px 5px;
+  margin: 10px 0;
+  box-sizing: border-box;
+  border: 2px solid #FB6307;
+  background-color: transparent;
+  border-radius: 5px;
+}
+
+select:focus {
+  border: 2px solid #FB6307;
 }
 
 input[type=text]:focus {
   border: 3px solid #FB6307;
 }
 
+
 input[type=button], input[type=submit], input[type=reset] {
   width: 100%;
   background-color: #FB6307;
+  background-image: linear-gradient(to right, #FB6307, #FC8035);
   border: none;
   color: white;
   font-size: 1rem;
   font-weight: bold;
   padding: 16px 32px;
   text-decoration: none;
-  margin: 20px 2px;
+  margin-top: 40px;
   cursor: pointer;
+  border-radius: 25px;
+  box-shadow: 0px 2px 10px #888888;
+}
+
+/* APARIÇÃO DO FORM */
+form {
+  overflow: hidden;
+  padding: 10px;
+  animation: fade 0.2s;
+}
+
+form .input-block {
+  animation: move 500ms;
+}
+
+form .btn-submit {
+  animation: move 400ms;
+  animation-delay: 250ms;
+  animation-fill-mode: backwards;
+}
+
+@keyframes move {
+  from {
+    opacity: 0;
+    transform: translateX(-35%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0%);
+  }
+}
+
+@keyframes fade {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
 }

@@ -2,9 +2,12 @@
 <html>
   <head>
     <title>Conquiste Crédito Consignado</title>
-    <meta charset="UTF-8" />
+    <meta charset="UTF-8" />   
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="css/stylesheet.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js" integrity="sha512-pHVGpX7F/27yZ0ISY+VVjyULApbDlD0/X0rgGbTqCE7WFW5MezNTWG/dnhtbBuICzsd0WQPgpE4REBLv+UqChw==" crossorigin="anonymous"></script>    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.js" integrity="sha512-0XDfGxFliYJPFrideYOoxdgNIvrwGTLnmK20xZbCAvPfLGQMzHUsaqZK8ZoH+luXGRxTrS46+Aq400nCnAT0/w==" crossorigin="anonymous"></script>
   </head>
 
   <body>
@@ -14,31 +17,56 @@
       <form action="/action_page.php">
         <p>Informe seus dados para que possamos fazer uma análise de crédito</p>
         <div class="sub-container">
-          <label for="nome">Nome completo:</label><br>
-          <input type="text" id="nome" name="nome"><br>
+          <div class="input-block">
+            <label for="nome">Nome completo:</label><br>
+            <input type="text" id="nome" name="nome"><br>
+          </div>
 
-          <label for="telefone">Telefone:</label><br>
-          <input type="text" id="telefone" name="telefone">
+          <div class="input-block">
+            <label for="nome">CPF:</label><br>
+            <input type="text" id="cpf" name="cpf" placeholder="000.000.000-00"><br>
+          </div>             
 
-          <label for="endereco">Endereço:</label><br>
-          <input type="text" id="endereco" name="endereco">
+          <div class="input-block">
+            <label for="telefone">Telefone:</label><br>
+            <input type="text" id="telefone" name="telefone" placeholder="(__) 00000-0000"/>
+          </div>
+          
+          <div class="input-block">            
+            <label for="endereco">Endereço:</label><br>
+            <input type="text" id="endereco" name="endereco"/>
+          </div>
         </div>
 
         <p>Dados da conta onde deseja receber o empréstimo</p>
 
         <div class="sub-container">
-          <label for="conta">Conta</label><br>
-          <input type="text" id="conta" name="conta"><br>
+          
+          <div class="input-block">
+            <label for="banco">Banco:</label><br>
+            <select name="banco" id="banco">
+              <option value="-1" default>Selecione uma opção</option>
+              <option value="bradesco">BRADESCO</option>
+              <option value="caixa">CAIXA</option>
+              <option value="itau">ITAU</option>
+              <option value="santander">SANTANDER</option>
+            </select>
+          </div>
 
-          <label for="agencia">Agencia:</label><br>
-          <input type="text" id="agencia" name="agencia">
-
-          <label for="banco">Banco:</label><br>
-          <input type="text" id="banco" name="banco">
+          <div class="input-block">
+            <label for="conta">Conta</label><br>
+            <input type="text" id="conta" name="conta" placeholder="00000-0" onkeypress="return (event.charCode !=8 && event.charCode ==0 || (event.charCode >= 48 && event.charCode <= 57))"/><br>
+          </div>
+          
+          <div class="input-block">            
+            <label for="agencia">Agencia:</label><br>
+            <input maxlength="5" type="text" id="agencia" name="agencia" placeholder="00000" onkeypress="return (event.charCode !=8 && event.charCode ==0 || (event.charCode >= 48 && event.charCode <= 57))"/>
+          </div>          
         </div>
 
-        <input type="submit" value="Enviar">
+        <input type="submit" class="btn-submit" value="Enviar">
       </form>
     </div>
+    <script src="./js/inputFunctions.js"></script>
   </body>
 </html>
